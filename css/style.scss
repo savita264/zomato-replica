@@ -1,3 +1,467 @@
 @use './reset.scss';
 
+$icons: 36px;
+$padding : 15px;
 /* Add your css here */
+*, body *, body *::after, body *::before{
+    box-sizing: border-box;
+    text-decoration:none ;
+    list-style: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    
+}
+body{background: rgb(231, 230, 230);}
+html{
+font-size: 13px;
+font-family: "Roboto", sans-serif;
+line-height: 1.30769231;
+
+}
+
+$desktop : 756px;
+@mixin desktop {
+    @media (max-width : #{$desktop}) {
+         @content ;
+    }
+}
+
+.h-container{
+     background: white;
+     width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:"right left";
+
+
+    
+
+    .left{
+        grid-area: right;
+        align-items: baseline;
+        padding: $padding;
+        margin-left: 45px;
+
+        @include desktop{
+            position: relative;
+            top: 15px;
+            margin-left: 0px;
+        }
+    }
+    .right{
+        grid-area: left;
+        padding: $padding;
+        margin-right: 45px; 
+
+        @include desktop{
+         display: flex;
+         flex-direction: column; 
+         flex-wrap: nowrap;    
+         margin-right: 0px;
+         padding: 10px 10px;
+        }
+        ul li{
+           display: inline;
+           padding: 0px  $padding;
+           float: right;
+           @include desktop{
+               float: right;
+               padding: 2px 15px;
+           }
+        }
+     
+    }
+ 
+    img{
+        max-width: 40px;
+        height: auto;
+       @include desktop{
+           width: 20px;
+       }
+    }
+    a{
+        color: rgb(74, 70, 70);
+        text-decoration: none;
+        text-transform: none;
+        @include desktop{
+            font-size: 12px;
+        }
+    }
+}
+
+.banner{
+    width: 100%;
+    background-image:url(bg.jpg);
+    background-size: cover;
+    height: auto;
+    
+    .sec-top{
+        display: flex;
+        flex-direction: row;
+        float: right;
+        align-items: baseline;
+        padding: 10px;
+        h6{
+            color: white;
+            padding-right: 15px;
+        }
+        button{
+            border: 1px solid white;
+            background-color: none;
+               color: white;
+           }
+        }
+    }
+    .search{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    .logo{
+        width: 200px;
+        @include desktop{
+            width: 100px;
+        }
+      }
+    h2{
+         font-size: 32px;
+         float: left;
+         color: white;
+         text-align: center;
+     }
+    }
+    .search-restaurant{
+      
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px;
+       @include desktop{
+           flex-direction: column;
+       }
+
+      
+        #search-res{
+            width: 500px;
+            height: auto;
+            border-radius: 20px;
+            border: white;
+            margin: 5px;
+
+            @include desktop{
+                width: 250px;
+            }
+     
+        }
+        #search-loc{
+            margin-top: 0px;
+            width:  200px;
+            height: auto;
+            border-radius: 20px;
+            border: white;
+            @include desktop{
+                width: 250px;
+            }
+     
+        }
+
+        .search-btn{
+            background-color: rgb(255, 61, 61);
+            color: white;
+            border-radius: 5px;
+            width: 100px;
+            height: 35px;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0px 0px 8px 1px #f8f3f3;
+
+            @include desktop{
+                width: 75px;
+                height: 30px;
+                font-size: 12px ;
+                margin-bottom: $padding*3;
+            }
+     
+          }
+     }
+
+
+.widget{
+    display: grid;
+    grid-row: auto;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: 
+    'zomaland search'
+    'collection search' ;
+    padding: $padding;
+
+    @include desktop{
+    grid-row: 30% auto;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    'search'
+    'collection' ;
+    }
+}
+.search-delivery{
+    grid-area: search;
+    width: 100%;
+    
+    .search-white{
+        margin-top:10px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        
+        justify-content: center;
+        padding: $padding;
+        
+        span{
+            padding: $padding 0px;
+        }
+         .search-del{
+            width:85%;
+            height: 40px;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0px;
+            @include desktop{
+                height: 30px;
+                width: 80%;
+            }
+
+        }
+        .detect-btn{
+            padding: 5px;
+            background: rgb(225, 225, 225);
+            border: 0px;
+            text-align: center;
+            border-radius: 3px;
+            margin: 0px;
+            width: 13%;
+            @include desktop{
+                font-size: 12px;
+                width: 17%;
+            }
+        }
+        .btn{
+            background: rgb(255, 61, 61);
+            color: wheat;
+            border-radius: 3px;
+            height: 40px;
+           @include desktop{
+               height: 30px;
+           }
+        }
+        .line{
+            margin-top: $padding;
+            width: 100%;
+            height: 1px;
+            background-color: rgb(199, 192, 192);
+            margin-bottom: 10%;
+        }
+        .offer{
+            color:rgb(255, 61, 61) ;
+            margin-bottom: $padding*6;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+}
+.zomaland img{
+    grid-area: zomaland;
+    width: 100%;
+    padding-right: 15px;
+    @include desktop{
+    display: none;
+    }
+}
+
+.collections{
+    grid-area: collection;
+    display: block;
+    overflow: hidden;
+    height: auto;
+
+    .collection-head{
+        margin: $padding 0px;
+    }
+
+
+.collection-list{
+    
+    display: flex;
+    flex-direction: row;
+    grid-area: collection;
+    flex-wrap: wrap;
+    padding: 0px;
+    }
+    .card{
+        margin-right: $padding;
+        @include desktop{
+            width: 48%;
+            margin: 0 0 5px 5px;
+            text-align: center;
+        }
+    }
+    .collection-footer{
+        grid-area: collection;
+        width: 98.5%;
+       padding: $padding - 5;
+        height: auto;
+        text-align: center;
+        background-color: white;
+        color: rgb(255, 61, 61) ;
+        
+    }
+}
+
+.categories{
+    margin: $padding;
+    .cat-head{
+        padding: $padding 0px;
+    }
+    #category-list{
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+    li{
+        text-align: center;
+        padding: 10px $padding*2;
+        width: 12.5%;
+        @include desktop{
+            width: 32%;
+            padding: 0px $padding;
+        }
+        img{
+            width: 80px;
+            @include desktop{
+                width: 60px;
+            }
+        }
+    }
+ }
+ 
+ .localities{
+    margin: $padding;
+
+    .loc-head{
+        padding: $padding 0px;
+    }
+    
+.locality-list{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    padding: $padding;
+    background-color: white;
+
+
+     ul{
+
+         width: 480px;
+         padding-left: $padding;
+         padding-bottom:$padding ;
+         li{
+             font-size: 16px;
+             padding-bottom: 10px;
+         }
+     }
+     ul li span{
+         color: rgb(157, 156, 156);
+     }
+}
+
+}
+
+footer{
+   background-color: rgb(41, 41, 41);
+    margin: $padding;
+    color: rgb(208, 203, 203);
+    .foot-top{
+        position: relative;
+        top: 0px;
+        padding: $padding;
+        img{
+          width: 50px;
+          height: auto;
+        }
+        .dropdown{
+           color: white;
+           float: right;
+           background-color: black;
+           button{
+               color: white;
+           }
+        }
+    }
+
+    .footer-wrapper{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: $padding;
+
+        ul{
+           width: 480px;
+           height: auto;
+           padding-right: $padding;
+        }
+        li{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 5px;
+        }
+        }
+    }
+
+    .line{
+        width: 90%;
+        height: 0.5px;
+        background-color:rgb(96, 94, 94) ;
+        margin: 15px;
+    }
+    .countries{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        
+     @include desktop{
+         flex-direction: column;
+     }
+        ul{
+        margin-left: 15px;
+        margin-right: 250px;
+        
+        li{
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 5px;
+       
+    }
+}
+}
+
+.terms{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: $padding;
+
+    li{
+        padding-right:$padding*2 ;
+    }
+}
